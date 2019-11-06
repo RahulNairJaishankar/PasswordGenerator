@@ -44,7 +44,7 @@ function leet(a){
     let b;
     if (typeof a == "string"){
       for (let i = 0; i < a.length; i++){
-        if(a.indexOf(i)("i") != -1){
+        if(a.indexOf(i).search("i") != -1){
           b+=1;
         }else if (a.indexOf(i).search("a") != -1){
           b+=4;
