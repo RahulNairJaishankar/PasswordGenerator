@@ -1,1 +1,73 @@
 <!--this is the main html page. html code goes in here-->
+<!--@author: Kenton Russel-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<div class="websiteName">
+			<title>
+				Password Generator!
+			</title>
+			<meta charset="UTF-8">
+		</div>
+	</head>
+	<body>
+	
+		<div class="websiteTitle">
+			<h1> 
+				<center>Password Generator!</center>
+			</h1>
+		</div>
+		<div class="List">
+			<div class="dateOfBirth">
+				<b>What is your date of birth?</b>
+				<form>
+					<input type="date" name="bday">
+				</form>
+			</div>
+			<div class="petName">
+				<br><b>What is your first pets name?</b></br>
+				<form>
+					<input type="text" name="petName">
+                </form>
+			</div>
+			<div class="bestFriend">
+				<br><b>What is the name of your childhood best friend?</b><br>
+				<form>
+					<input type="text" name="friendName">
+				</form>
+			</div>
+			<div class="intendedSite">
+				<br><b>What Website will this password be for?</br><b>
+				<form>
+					<input type="text" name="intendedSiteName">
+				</form>
+			</div>
+			<div class="childhoodStreetName">
+				<br><b>What street did you grow up on?</br><b>
+				<form>
+					<input type="text" name="streetName">
+				</form>
+			</div>
+			<div class="numAsLetters?">
+				<br><b>Use Numbers as Letters?</br><b>
+				<form>
+					<input type="checkbox" name="numAsLetters">
+				</form>
+			</div>
+			<div class="addSymbolsClass">
+				<br><b>Add Symbols to Password?</br><b>
+				<form>
+					<input type="checkbox" name="addSymbols">
+				</form>
+			</div>
+			<div class="useCamelCaseClass">
+				<br><b>Use Camel Case?</br><b>
+				<form>
+					<input type="checkbox" name="useCamelCase">
+				</form>
+            </div></b><br>
+            <script src="JavaScript.js"></script>
+            <button onclick="parser()" type="button">Generate Password</button>
+		</div>
+	</body>
+</html>
