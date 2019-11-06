@@ -70,6 +70,8 @@ function leet(a){
           b = b.concat("3");
         }else if (a.substring(i,i+1) == "o"){
           b = b.concat("0");
+        }else if (a.substring(i,i+1) == "s"){
+            b = b.concat("5");
         }else{
           b = b.concat(a.substring(i,i+1));
         }
