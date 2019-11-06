@@ -39,7 +39,8 @@ function parser(){
     console.log("camelCase: " + camelCaseBool );
 
     //display message test
-    finalPassword = "Testing123";
+    //finalPassword = "Testing123";
+    finalPassword = leet(bestFriendsName);
 
     //calling display function
     displayMessage(finalPassword);
@@ -57,3 +58,24 @@ function displayMessage(message){
  * @author James Johnson
  * @param {*} a String to be converted to leet code
  */
+function leet(a){
+    let b = "";
+    if (typeof a == "string"){
+      for (let i = 0; i < a.length; i++){
+        if(a.substring(i,i+1) == "i"){
+          b = b.concat("1");
+        }else if (a.substring(i,i+1) == "a"){
+          b = b.concat("4");
+        }else if (a.substring(i,i+1) == "e"){
+          b = b.concat("3");
+        }else if (a.substring(i,i+1) == "o"){
+          b = b.concat("0");
+        }else{
+          b = b.concat(a.substring(i,i+1));
+        }
+      }
+      return b;
+    }else{
+      return "not string";
+    }
+  }
