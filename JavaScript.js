@@ -1,6 +1,7 @@
 /*java script file*/
 
 /**
+ * @author Rahul Jaishankar
  * parser function that recieves user input from html page
  */
 function parser(){
@@ -20,9 +21,9 @@ function parser(){
 
     //Checking if user checked any of the check-boxes
     //IMP please change to appropriate ID tags; rn only placeholders
-    let leet = document.getElementsByName("numAsLetters")[0].checked;
-    let symbols = document.getElementsByName("addSymbols")[0].checked;
-    let camelCase = document.getElementsByName("useCamelCase")[0].checked;
+    let leetBool = document.getElementsByName("numAsLetters")[0].checked;
+    let symbolBool = document.getElementsByName("addSymbols")[0].checked;
+    let camelCaseBool = document.getElementsByName("useCamelCase")[0].checked;
 
     //testing parser functionality
     console.log(DOB);
@@ -30,7 +31,33 @@ function parser(){
     console.log(bestFriendsName);
     console.log(intendedWebsite);
     console.log(streetName);
-    console.log("num as letters: " + leet);
-    console.log("add symbolsclass: " + symbols);
-    console.log("camelCase: " + camelCase);
+    console.log("num as letters bool: " + leetBool + " num as letters: " + leet(bestFriendsName));
+    console.log("add symbolsclass: " + symbolBool);
+    console.log("camelCase: " + camelCaseBool );
 }
+
+/**
+ * @author James Johnson
+ * @param {*} a String to be converted to leet code
+ */
+function leet(a){
+    let b;
+    if (typeof a == "string"){
+      for (let i = 0; i < a.length; i++){
+        if(a.indexOf(i)("i") != -1){
+          b+=1;
+        }else if (a.indexOf(i).search("a") != -1){
+          b+=4;
+        }else if (a.indexOf(i).search("e") != -1){
+          b+=3;
+        }else if (a.indexOf(i).search("o") != -1){
+          b+=0;
+        }else{
+          b+=a.indexOf(i);
+        }
+      }
+      return b;
+    }else{
+      return "not string";
+    }
+  }
