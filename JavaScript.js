@@ -10,6 +10,9 @@ function parser(){
     //declaring elements variables to store elements from "form1"
     let elements = document.getElementById("form1");
 
+    //final password variable
+    let finalPassword;
+
     //assigning values to variables from elements
  
     let DOB = document.getElementsByName("bday")[0].value; //retuns in YYYY-MM-05
@@ -31,33 +34,26 @@ function parser(){
     console.log(bestFriendsName);
     console.log(intendedWebsite);
     console.log(streetName);
-    console.log("num as letters bool: " + leetBool + " num as letters: " + leet(bestFriendsName));
+    console.log("num as letters bool: " + leetBool /*+ " num as letters: " + leet(bestFriendsName)*/);
     console.log("add symbolsclass: " + symbolBool);
     console.log("camelCase: " + camelCaseBool );
+
+    //display message test
+    finalPassword = "Testing123";
+
+    //calling display function
+    displayMessage(finalPassword);
+}
+
+/**
+ * function to update final password text on website
+ * @param {} message message to be displayed
+ */
+function displayMessage(message){
+    document.getElementById("finalPassword").innerHTML = message;
 }
 
 /**
  * @author James Johnson
  * @param {*} a String to be converted to leet code
  */
-function leet(a){
-    let b;
-    if (typeof a == "string"){
-      for (let i = 0; i < a.length; i++){
-        if(a.indexOf(i).search("i") != -1){
-          b+=1;
-        }else if (a.indexOf(i).search("a") != -1){
-          b+=4;
-        }else if (a.indexOf(i).search("e") != -1){
-          b+=3;
-        }else if (a.indexOf(i).search("o") != -1){
-          b+=0;
-        }else{
-          b+=a.indexOf(i);
-        }
-      }
-      return b;
-    }else{
-      return "not string";
-    }
-  }
