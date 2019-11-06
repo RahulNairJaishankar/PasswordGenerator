@@ -62,16 +62,16 @@ function leet(a){
     let b = "";
     if (typeof a == "string"){
       for (let i = 0; i < a.length; i++){
-        if(a.substring(i,i+1) == "i"){
+        if((a.substring(i,i+1) == "i") || (a.substring(i,i+1) == "I")){
           b = b.concat("1");
-        }else if (a.substring(i,i+1) == "a"){
+        }else if ((a.substring(i,i+1) == "a") || (a.substring(i,i+1) == "A")){
           b = b.concat("4");
-        }else if (a.substring(i,i+1) == "e"){
+        }else if ((a.substring(i,i+1) == "e") || (a.substring(i,i+1) == "E")){
           b = b.concat("3");
-        }else if (a.substring(i,i+1) == "o"){
+        }else if ((a.substring(i,i+1) == "o") || (a.substring(i,i+1) == "O")){
           b = b.concat("0");
-        }else if (a.substring(i,i+1) == "s"){
-            b = b.concat("5");
+        }else if ((a.substring(i,i+1) == "s") || (a.substring(i,i+1) == "S")){
+          b = b.concat("5");
         }else{
           b = b.concat(a.substring(i,i+1));
         }
