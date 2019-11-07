@@ -1,4 +1,4 @@
-/*java script file*/
+/*javaScript file*/
 
 /**
  * @author Rahul Jaishankar
@@ -123,7 +123,7 @@ function generatePassword(passwordBits, leetChk, SymCheck, CmlChk) {
         for (i = 0; i < passwordBits.length; i++) {
             password += " " + passwordBits[i];
         }
-        
+
         password = camelize(password);
     }
     else {
