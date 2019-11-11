@@ -103,9 +103,20 @@ function camelize(str) {
     });
 }
 
-function symbols(str) {
-    //TODO
-    return str;
+/**
+ * function to randomly insert a symbol into an array of strings
+ * @param {} arrayOfStrings 
+ */
+function insertSymbols(arrayOfStrings) {
+    
+    //array of symbols
+    let symbols = ["!","@","#","$","%",'^',"&","*"];
+
+    arrayOfStrings.splice(indexPicker(arrayOfStrings.length), 0, symbols[indexPicker(symbols.length)]);
+
+    console.log(arrayOfStrings);
+
+    return arrayOfStrings;
 }
 
 /**
@@ -119,6 +130,10 @@ function symbols(str) {
 function generatePassword(passwordBits, leetChk, SymCheck, CmlChk) {
     let password = "";
 
+    if (SymCheck) {
+        
+        passwordBits = insertSymbols(passwordBits);
+    }    
     if (CmlChk) {
         for (i = 0; i < passwordBits.length; i++) {
             password += " " + passwordBits[i];
@@ -133,10 +148,6 @@ function generatePassword(passwordBits, leetChk, SymCheck, CmlChk) {
     }
     if (leetChk) {
         password = leet(password);
-    }
-
-    if (SymCheck) {
-        password = symbols(password);
     }
 
     return password;
@@ -209,4 +220,13 @@ function delimitInputs(dateStr, petStr, friendStr, siteStr, streetStr) {
     }
 
     return bits;
+}
+
+/**
+ * function to randomly pick an index/number between 0 and length
+ * @param {*} length length of a string or array of elements
+ */
+function indexPicker(length){
+    
+    return Math.floor(Math.random() * length);
 }
