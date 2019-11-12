@@ -108,9 +108,9 @@ function camelize(str) {
  * @param {} arrayOfStrings 
  */
 function insertSymbols(arrayOfStrings) {
-    
+
     //array of symbols
-    let symbols = ["!","@","#","$","%",'^',"&","*"];
+    let symbols = ["!", "@", "#", "$", "%", '^', "&", "*"];
 
     arrayOfStrings.splice(indexPicker(arrayOfStrings.length), 0, symbols[indexPicker(symbols.length)]);
 
@@ -130,10 +130,16 @@ function insertSymbols(arrayOfStrings) {
 function generatePassword(passwordBits, leetChk, SymCheck, CmlChk) {
     let password = "";
 
+    //truncate elements
+    passwordBits = truncateElements(passwordBits);
+
+    //Shuffle elements
+    passwordBits = shuffleElements(passwordBits);
+
     if (SymCheck) {
-        
+
         passwordBits = insertSymbols(passwordBits);
-    }    
+    }
     if (CmlChk) {
         for (i = 0; i < passwordBits.length; i++) {
             password += " " + passwordBits[i];
@@ -188,6 +194,10 @@ function dataValidation(date, website, street) {
  */
 function delimitInputs(dateStr, petStr, friendStr, siteStr, streetStr) {
     let bits = dateStr.split(new RegExp('[-+()*/:? ]', 'g'));
+
+    //separately truncating the year -> 1997 to 97
+    bits[0] = bits[0].substring(2, 4)
+
     let tempArray;
     if (petStr != "") //filtering optional content
     {
@@ -226,7 +236,38 @@ function delimitInputs(dateStr, petStr, friendStr, siteStr, streetStr) {
  * function to randomly pick an index/number between 0 and length
  * @param {*} length length of a string or array of elements
  */
-function indexPicker(length){
-    
+function indexPicker(length) {
+
     return Math.floor(Math.random() * length);
+}
+
+/**
+ * @author Rahul Jaishankar
+ * function to truncate the elements in an array. It will return an array of strings
+ * where all elements are truncated to three characters
+ * @param {*} arr array elements which needs truncating.
+ */
+function truncateElements(arr) {
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].substring(0, 3);
+    }
+
+    return arr;
+}
+
+/**
+ * @author Rahul Jaishankar
+ * Shuffling elements in an array using the Fisher-Yates Shuffle algorithm.
+ * @param {*} array array of elements that needs to be shuffled.
+ */
+function shuffleElements(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+
+        let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+        let t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+
+        return array;
+    }
 }
