@@ -261,13 +261,17 @@ function truncateElements(arr) {
  * @param {*} array array of elements that needs to be shuffled.
  */
 function shuffleElements(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
-        let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
-        let t = array[i];
-        array[i] = array[j];
-        array[j] = t;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
 
-        return array;
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
     }
+
+    return array;
 }
