@@ -131,7 +131,7 @@ function generatePassword(passwordBits, leetChk, SymCheck, CmlChk) {
     let password = "";
 
     //truncate elements
-    passwordBits = truncateElements(passwordBits);
+    passwordBits = truncateElements(passwordBits, 1);
 
     //Shuffle elements
     passwordBits = shuffleElements(passwordBits);
@@ -193,10 +193,19 @@ function dataValidation(date, website, street) {
  * @param {*} streetStr 
  */
 function delimitInputs(dateStr, petStr, friendStr, siteStr, streetStr) {
-    let bits = dateStr.split(new RegExp('[-+()*/:? ]', 'g'));
+    
+    let dates = dateStr.split(new RegExp('[-+()*/:? ]', 'g'));
+    
+    //separately truncating the year -> 1997 to 97 
+    dates[0] = dates[0].substring(2, 4)
+    let dateString = "";
+     
+    for(i = dates.length - 1; i >= 0; i--)
+    {
+        dateString += dates[i];
+    }
 
-    //separately truncating the year -> 1997 to 97
-    bits[0] = bits[0].substring(2, 4)
+    let bits = [dateString];
 
     let tempArray;
     if (petStr != "") //filtering optional content
@@ -246,9 +255,10 @@ function indexPicker(length) {
  * function to truncate the elements in an array. It will return an array of strings
  * where all elements are truncated to three characters
  * @param {*} arr array elements which needs truncating.
+ * @param index index to start delimiting from; to skip date data.
  */
-function truncateElements(arr) {
-    for (i = 0; i < arr.length; i++) {
+function truncateElements(arr, index) {
+    for (index; i < arr.length; i++) {
         arr[i] = arr[i].substring(0, 3);
     }
 
