@@ -197,13 +197,11 @@ function delimitInputs(dateStr, petStr, friendStr, siteStr, streetStr) {
     let dates = dateStr.split(new RegExp('[-+()*/:? ]', 'g'));
     
     //separately truncating the year -> 1997 to 97 
-    dates[0] = dates[0].substring(2, 4)
+    dates[0] = dates[0].substring(2, 4);
     let dateString = "";
      
-    for(i = dates.length - 1; i >= 0; i--)
-    {
-        dateString += dates[i];
-    }
+    //formatting date
+    dateString = dates[1] + dates[2] + dates[0];
 
     let bits = [dateString];
 
