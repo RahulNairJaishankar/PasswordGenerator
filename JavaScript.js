@@ -258,7 +258,7 @@ function indexPicker(length) {
  * @param index index to start delimiting from; to skip date data.
  */
 function truncateElements(arr, index) {
-    for (index; i < arr.length; i++) {
+    for (i = index; i < arr.length; i++) {
         arr[i] = arr[i].substring(0, 3);
     }
 
