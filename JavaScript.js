@@ -60,7 +60,7 @@ function parser() {
  * @param {} message message to be displayed
  */
 function displayMessage(message) {
-    document.getElementById("finalPassword").innerHTML = message;
+    document.getElementById("finalPassword").value = message;
 }
 
 /**
@@ -257,7 +257,7 @@ function indexPicker(length) {
  */
 function truncateElements(arr, index) {
     for (i = index; i < arr.length; i++) {
-        arr[i] = arr[i].substring(0, 3);
+        arr[i] = arr[i].substring(0, 4);
     }
 
     return arr;
