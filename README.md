@@ -39,22 +39,20 @@ A basic rundown of the functionality of the **Password Generator**.
      * Shuffling elements in an array using the Fisher-Yates Shuffle algorithm.
      * @param {*} array array of elements that needs to be shuffled.
      */
-     function shuffleElements(array) {
-         let currentIndex = array.length, temporaryValue, randomIndex;
+      function shuffleElements(array) {
+          let currentIndex = array.length, temporaryValue, randomIndex;
 
-          while (0 !== currentIndex) {
-             randomIndex = Math.floor(Math.random() * currentIndex);
-              currentIndex -= 1;
+            while (0 !== currentIndex) {
+              randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
 
-              // And swap it with the current element.
-              temporaryValue = array[currentIndex];
-              array[currentIndex] = array[randomIndex];
-              array[randomIndex] = temporaryValue;
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+            return array;
           }
-
-          return array;
-        }
-        
     ```
     - **(optional step)** A symbol `["!", "@", "#", "$", "%", '^', "&", "*"]` is randomly inserted into the password.
    - **(optional step)** Password is *camelized*. Password will be converted into *camelCase*
