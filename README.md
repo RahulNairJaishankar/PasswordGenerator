@@ -32,7 +32,7 @@ A basic rundown of the functionality of the **Password Generator**.
       - For Example: "ilovemusic" will be converted to  "iLoveMusic".
    - Once the user clicks the **Generate Password** button, using the data provided by the user, the following steps will be excecuted:
      - Each **word** the **user enters** is a `password element`. Multiple `elements` make up the **password**.
-     - Longer `elements` are shorted to *four* letters.
+     - Longer `elements` are shortened to *four* letters.
      - **Data** or **words** provided by the user will be shuffled using the [**Fisher-Yates Shuffle Algorithm**](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle).
 ```javascript
     /**
